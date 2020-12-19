@@ -5,7 +5,7 @@ from lxml import html
 field = "web"
 location = "Waterloo%2C%2BOntario%2C%2BCanada"
 pageNo = 0
-reqstring = f"https://www.linkedin.com/jobs/search?keywords={field}&location={location}&trk=homepage-jobseeker_jobs-search-bar_search-submit&currentJobId=2342605609&position=2&pageNum={pageNo}"
+reqstring = f'https://www.linkedin.com/jobs/search?keywords={field}&location={location}&trk=homepage-jobseeker_jobs-search-bar_search-submit&currentJobId=2342605609&position=2&pageNum={pageNo}'
 html_text = requests.get(reqstring).text
 soup = BeautifulSoup(html_text, 'lxml')
 jobs = soup.find_all(
