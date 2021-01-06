@@ -34,8 +34,30 @@ else:
             'a', class_="result-card__subtitle-link job-result-card__subtitle-link")
         if (employer):
             employer = employer.text
-        print(f"""
-        Link: {link.get('href')}\n
-        Job Tile: {jobTitle}\n
-        Employer: {employer}
-        """)
+
+        queryJobString = link.get('href')
+        job_html = requests.get(queryJobString).text
+        job_soup = BeautifulSoup(job_html, 'lxml')
+        job_text = job_soup.find_all(
+            'div', class_="show-more-less-html__markup show-more-less-html__markup--clamp-after-5")
+        skillMatch = []
+        for elem in job_text:
+            for skill in skills:
+                if(elem.text):
+                    if skill.lower() in elem.text.lower():
+                        skillMatch.append(skill)
+        if(len(skillMatch) > 0):
+            print(f"""
+            Link: {link.get('href')}\n
+            Job Tile: {jobTitle}\n
+            Employer: {employer}
+            Percentage: {(len(skillMatch)/len(skills)*100)}%
+            Matches: {skillMatch}
+            --------------------------------------------------------------------------------
+            """)
+
+            # print(type(elem.text))
+            # print()
+            # print(elem.text.count("Python"))
+            # elem.text.count("about")
+        # print(job_text)
