@@ -6,7 +6,7 @@ field = input("Enter Field: ")
 location = input("Enter Location [eg: Waterloo, Ontario, Canada]: ")
 location = location.replace(",", "%2C")
 skills = []
-
+resultList = []
 while True:
     skillInput = input("Enter Skill (type done when done): ")
     if(skillInput == "done"):
@@ -47,17 +47,17 @@ else:
                     if skill.lower() in elem.text.lower():
                         skillMatch.append(skill)
         if(len(skillMatch) > 0):
-            print(f"""
-            Link: {link.get('href')}\n
-            Job Tile: {jobTitle}\n
-            Employer: {employer}
-            Percentage: {(len(skillMatch)/len(skills)*100)}%
-            Matches: {skillMatch}
-            --------------------------------------------------------------------------------
-            """)
+            jobList = [jobTitle, employer,
+                       round(len(skillMatch)/len(skills)*100, 2), skillMatch, link.get('href')]
+            resultList.append(jobList)
+            resultList.sort(key=lambda x: x[2], reverse=True)
 
-            # print(type(elem.text))
-            # print()
-            # print(elem.text.count("Python"))
-            # elem.text.count("about")
-        # print(job_text)
+
+for res in resultList:
+    print(f"""
+    Job Tile: {res[0]}\n
+    Employer: {res[1]}\n
+    % Match : {res[2]}%\n
+    Skills  : {res[3]}\n
+    Job Link: {res[4]}\n
+    """)
