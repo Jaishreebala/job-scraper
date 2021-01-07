@@ -20,7 +20,7 @@ __Step 1:__ Input your field, location and skills. (Can be left blank if needed 
 __Step 2:__ Wait for the script to find the jobs for for! :) 
 Note: The results are ordered by highest match, and the skills that were matched is also shown in the results as well.
  
- <img src="./Assets/results.gif" width="500">
+ <img src="./Assets/results.gif">
 
  __Step 3:__ Click the link to apply!
 
