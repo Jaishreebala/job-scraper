@@ -14,7 +14,7 @@ while True:
     else:
         skills.append(skillInput)
 
-print(skills)
+print("Searching for jobs... Might take a minute, hang tight! :D")
 
 pageNo = 0
 reqstring = f'https://www.linkedin.com/jobs/search?keywords={field}&location={location}&trk=homepage-jobseeker_jobs-search-bar_search-submit&position=2&pageNum={pageNo}'
