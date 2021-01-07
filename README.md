@@ -14,10 +14,12 @@ A python script that takes in user input for their field of job search, location
 ## Demonstration:
 
 __Step 1:__ Input your field, location and skills. (Can be left blank if needed but it is recommended to fill out as much information as possible for more customized results)
+
  <img src="./assets/userinput.png" width="500">
 
 __Step 2:__ Wait for the script to find the jobs for for! :) 
-Note: The results are ordered by highest match, and the skills that were matched is also shown in the results as well. 
+Note: The results are ordered by highest match, and the skills that were matched is also shown in the results as well.
+ 
  <img src="./assets/results.gif" width="500">
 
  __Step 3:__ Click the link to apply!
